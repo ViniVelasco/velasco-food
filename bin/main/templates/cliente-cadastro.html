@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorate="~{layout}"
+>
+  <body>
+    <div layout:fragment="content">
+      <div>
+        <h1>Cadastro de Cliente</h1>
+
+        <div id="mensagemDeSucesso" th:if="${msg != null}">
+          <span th:text="${msg}"></span>
+        </div>
+        <br />
+
+        <form
+          th:object="${cliente}"
+          method="POST"
+          th:action="${!editMode} ? @{/public/cliente/save} : @{/cliente/save}"
+        >
+          <fieldset>
+            <input type="hidden" th:field="*{id}" />
+            <label for="nome">Nome: </label><br />
+            <input
+              th:field="*{nome}"
+              type="text"
+              name="nome"
+              id="nome"
+              placeholder="Nome"
+              th:classappend="${#fields.hasErrors('nome')} ? 'inputError': ''"
+            /><br /><br />
+            <div id="mensagemDeErro" th:if="${#fields.hasErrors('nome')}">
+              <span th:errors="*{nome}"></span>
+            </div>
+            <br />
+
+            <label for="email">E-mail: </label><br />
+            <input
+              th:field="*{email}"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              th:classappend="${#fields.hasErrors('email')} ? 'inputError': ''"
+            /><br /><br />
+            <div id="mensagemDeErro" th:if="${#fields.hasErrors('email')}">
+              <span th:errors="*{email}"></span>
+            </div>
+            <br />
+
+            <label for="cpf">CPF: </label><br />
+            <input
+              th:field="*{cpf}"
+              type="text"
+              name="cpf"
+              id="cpf"
+              onKeyDown="return isNumberKey(event);"
+              placeholder="CPF"
+              th:classappend="${#fields.hasErrors('cpf')} ? 'inputError': ''"
+            /><br /><br />
+            <div id="mensagemDeErro" th:if="${#fields.hasErrors('cpf')}">
+              <span th:errors="*{cpf}"></span>
+            </div>
+            <br />
+
+            <label for="telefone">Telefone: </label><br />
+            <input
+              th:field="*{telefone}"
+              type="text"
+              name="telefone"
+              id="telefone"
+              onKeyDown="return isNumberKey(event);"
+              placeholder="Telefone"
+              th:classappend="${#fields.hasErrors('telefone')} ? 'inputError': ''"
+            /><br /><br />
+            <div id="mensagemDeErro" th:if="${#fields.hasErrors('telefone')}">
+              <span th:errors="*{telefone}"></span>
+            </div>
+            <br />
+
+            <label for="cep">CEP: </label><br />
+            <input
+              th:field="*{cep}"
+              type="text"
+              name="cep"
+              id="cep"
+              onKeyDown="return isNumberKey(event);"
+              placeholder="CEP"
+              th:classappend="${#fields.hasErrors('cep')} ? 'inputError': ''"
+            /><br /><br />
+            <div id="mensagemDeErro" th:if="${#fields.hasErrors('cep')}">
+              <span th:errors="*{cep}"></span>
+            </div>
+            <br />
+
+			<div th:if="${!editMode}">
+	            <label for="senha">Senha: </label><br />
+	            <input
+	              th:field="*{senha}"
+	              type="password"
+	              name="senha"
+	              id="senha"
+	              placeholder="Senha"
+	              th:classappend="${#fields.hasErrors('senha')} ? 'inputError': ''"
+	            /><br /><br />
+	            <div id="mensagemDeErro" th:if="${#fields.hasErrors('senha')}">
+	              <span th:errors="*{senha}"></span>
+	            </div>
+	            <br />
+            </div>
+			<input type="hidden" name="senha" value="*" th:if="${editMode}" />
+			
+            <input
+              type="submit"
+              th:value="${!editMode} ? 'Cadastrar' : 'Alterar' "
+            />
+          </fieldset>
+        </form>
+        <br />
+
+        <input type="button" value="Voltar" th:onclick="'location.href=\'' + @{/cliente/home} + '\';'" />
+      </div>
+    </div>
+  </body>
+</html>

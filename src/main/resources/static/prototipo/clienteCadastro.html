@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bf_estiloSistema.css" />
+    <meta charset="UTF-8" />
+    <title>BlueFood</title>
+  </head>
+  <body>
+    <header>
+      <div id="divLogotipoSistema">
+        <span id="spanVerticalAlign"></span>
+        <a href="">
+          <img src="images/bf_logotipoSistema.png" id="imgLogotipo" />
+        </a>
+      </div>
+
+      <div id="divUsuarioLogado">
+        Olá Nome do Usuário!
+        <br />
+        <img src="images/bf_iconeCarrinho.png" id="imgIconeCarrinho" />
+      </div>
+    </header>
+    <br /><br />
+    <!-- Cabeçalho Final -->
+
+    <div>
+      <h1>Cadastro de Cliente</h1>
+
+      <div id="mensagemDeSucesso">
+        Aqui vai um exemplo de mensagem de sucesso
+      </div>
+      <br />
+
+      <form method="POST" action="">
+        <fieldset>
+          <label for="nome">Nome: </label><br />
+          <input
+            type="text"
+            name="nome"
+            id="nome"
+            placeholder="Nome"
+          /><br /><br />
+          <div id="mensagemDeErro">
+            Aqui vai um exemplo de mensagem de erro
+          </div>
+
+          <label for="email">E-mail: </label><br />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+          /><br /><br />
+
+          <label for="cpf">CPF: </label><br />
+          <input
+            type="text"
+            name="cpf"
+            id="cpf"
+            placeholder="CPF"
+            class="inputError"
+          /><br /><br />
+
+          <label for="telefone">Telefone: </label><br />
+          <input
+            type="text"
+            name="telefone"
+            id="telefone"
+            placeholder="Telefone"
+          /><br /><br />
+
+          <label for="cep">CEP: </label><br />
+          <input
+            type="text"
+            name="cep"
+            id="cep"
+            placeholder="CEP"
+          /><br /><br />
+
+          <label for="senha">Senha: </label><br />
+          <input
+            type="password"
+            name="senha"
+            id="senha"
+            placeholder="Senha"
+          /><br /><br />
+
+          <input type="button" value="Cadastrar" />
+        </fieldset>
+      </form>
+      <br />
+
+      <input type="button" value="Voltar" />
+    </div>
+
+    <!-- Rodapé Início -->
+  </body>
+</html>
